@@ -1,410 +1,464 @@
 <!DOCTYPE html>
-
-<html prefix="og: https://ogp.me/ns#">
-
+<html lang="fr" prefix="og: https://ogp.me/ns#">
 <head>
-
-<title>
-ChronoThé Paris
-</title>
+<meta charset="UTF-8">
+<title>ChronoThé Paris — The Perfect Tea Assistant</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="keywords" content="tea maker, infusion automatique, ">
-<meta name="description" content="Votre assistant de thé parfait">
+<meta name="keywords" content="tea maker, automatic infusion, tea timer, tea assistant, chronothe, infuseur thé">
+<meta name="description" content="Elephant ChronoThé — l'assistant de thé parfait">
 
-<meta property="og:title" content="ChronoThé — Paris" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="ChronoThé "/>
-<meta property="og:description" content="Elephant ChronoThé — l'assistant de thé parfait" />
-<meta property="og:image" content="https://chronothe.fr/img/sm.jpg" />
-<meta property="og:url" content="https://chronothe.fr/" />
+<!-- Canonical URL -->
+<link rel="canonical" href="https://chronothe.fr/">
 
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="@chronotea1" />
-<meta name="twitter:title" content="ChronoThé — Paris" />
-<meta name="twitter:description" content="Elephant ChronoThé — l'assistant de thé parfait" />
-<meta name="twitter:image" content="https://chronothe.fr/img/sm.jpg" />
+<!-- Alternate language versions for SEO -->
+<link rel="alternate" hreflang="fr" href="https://chronothe.fr/?lang=fr">
+<link rel="alternate" hreflang="en" href="https://chronothe.fr/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://chronothe.fr/">
 
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://chronothe.fr/">
+<meta property="og:title" content="ChronoThé — Paris">
+<meta property="og:description" content="Elephant ChronoThé — l'assistant de thé parfait">
+<meta property="og:image" content="https://chronothe.fr/img/sm.jpg">
+<meta property="og:site_name" content="ChronoThé">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@chronotea1">
+<meta name="twitter:title" content="ChronoThé — Paris">
+<meta name="twitter:description" content="Elephant ChronoThé — l'assistant de thé parfait">
+<meta name="twitter:image" content="https://chronothe.fr/img/sm.jpg">
+
+<!-- Bulma CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 
 <style>
+	:root {
+		--primary-color: #00d1b2;
+		--secondary-color: #3273dc;
+		--text-color: #4a4a4a;
+		--border-radius: 8px;
+	}
+
+	body {
+		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+		color: var(--text-color);
+	}
+
 	.language-switcher {
 		position: fixed;
-		top: 20px;
-		right: 20px;
+		top: 1.5rem;
+		right: 1.5rem;
 		z-index: 1000;
+		display: flex;
+		gap: 0.5rem;
+		background: white;
+		padding: 0.5rem;
+		border-radius: var(--border-radius);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 	}
+
 	.language-switcher .button {
-		margin-left: 5px;
+		min-width: 50px;
+		font-weight: 600;
+		transition: all 0.3s ease;
+	}
+
+	.language-switcher .button.is-primary {
+		transform: scale(1.05);
+	}
+
+	.hero-body {
+		padding: 3rem 1.5rem;
+	}
+
+	.hero.is-primary {
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	}
+
+	.title {
+		font-weight: 700;
+		color: #363636;
+		margin-bottom: 1rem;
+	}
+
+	.subtitle {
+		color: #4a4a4a;
+		line-height: 1.6;
+		white-space: pre-line;
+	}
+
+	section.hero {
+		margin-bottom: 2rem;
+	}
+
+	section.hero img, section.hero video {
+		border-radius: var(--border-radius);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+		margin: 1rem auto;
+		display: block;
+		max-width: 100%;
+		height: auto;
+	}
+
+	.footer {
+		background-color: #f5f5f5;
+		padding: 3rem 1.5rem;
+		margin-top: 4rem;
+	}
+
+	.footer p {
+		margin-bottom: 0.5rem;
+	}
+
+	.product-embed {
+		margin: 2rem 0;
+		display: flex;
+		justify-content: center;
+	}
+
+	/* Responsive design */
+	@media screen and (max-width: 768px) {
+		.language-switcher {
+			top: 1rem;
+			right: 1rem;
+			padding: 0.25rem;
+		}
+
+		.hero-body {
+			padding: 2rem 1rem;
+		}
+
+		.title {
+			font-size: 1.75rem;
+		}
+	}
+
+	/* Smooth scroll */
+	html {
+		scroll-behavior: smooth;
+	}
+
+	/* Animation for sections */
+	section.hero {
+		animation: fadeIn 0.6s ease-in;
+	}
+
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
 </style>
+
+<!-- Structured Data / Schema.org -->
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@type": "Product",
+	"name": "Elephant ChronoThé",
+	"description": "Automatic tea infusion assistant, made in France",
+	"brand": {
+		"@type": "Brand",
+		"name": "ChronoThé"
+	},
+	"offers": {
+		"@type": "Offer",
+		"url": "https://chronothe.fr/",
+		"priceCurrency": "EUR",
+		"availability": "https://schema.org/InStock"
+	},
+	"manufacturer": {
+		"@type": "Organization",
+		"name": "ChronoThé",
+		"address": {
+			"@type": "PostalAddress",
+			"addressLocality": "Paris",
+			"addressCountry": "FR"
+		}
+	}
+}
+</script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8R8HDKQLK4"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-8R8HDKQLK4');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-8R8HDKQLK4');
 </script>
 
 </head>
 <body>
 
-	<!-- Language Switcher -->
-	<div class="language-switcher">
-		<button class="button is-small" onclick="switchLanguage('fr')">FR</button>
-		<button class="button is-small" onclick="switchLanguage('en')">EN</button>
-	</div>
+<!-- Language Switcher -->
+<div class="language-switcher">
+	<button class="button is-small is-rounded" onclick="switchLanguage('fr')" aria-label="Switch to French">FR</button>
+	<button class="button is-small is-rounded" onclick="switchLanguage('en')" aria-label="Switch to English">EN</button>
+</div>
 
-	<div class="container is-max-desktop"
-	
-		
-		<section class="hero">
-			<div class="hero-body">
-				<h1 class="title">
-					ChronoThé  — Paris
-				</h1>
-				<p class="subtitle" data-i18n="subtitle">
-					Elephant ChronoThé — l'assistant de thé parfait
-				</p>
-				<p><img src="img/DSC5610-1.jpg" width="100%"></p>
-				<div class="ecsp ecsp-SingleProduct-v2 ecsp-Product ec-Product-439665127" itemtype="http://schema.org/Product" data-single-product-id="439665127"><div class="ecsp-title" itemprop="name" style="display:none;" content="Elephant ChronoThé"></div><div customprop="addtobag"></div></div><script data-cfasync="false" type="text/javascript" src="https://app.ecwid.com/script.js?71454014&data_platform=singleproduct_v2" charset="utf-8"></script><script type="text/javascript">xProduct()</script>
+<div class="container is-max-desktop">
 
+	<!-- Hero Section -->
+	<section class="hero">
+		<div class="hero-body">
+			<h1 class="title is-1">
+				ChronoThé — Paris
+			</h1>
+			<p class="subtitle is-4" data-i18n="subtitle">
+				Elephant ChronoThé — l'assistant de thé parfait
+			</p>
+			<p><img src="img/DSC5610-1.jpg" width="100%" alt="Elephant ChronoThé Product"></p>
+
+			<!-- Product Embed -->
+			<div class="product-embed">
+				<div class="ecsp ecsp-SingleProduct-v2 ecsp-Product ec-Product-439665127" itemtype="http://schema.org/Product" data-single-product-id="439665127">
+					<div class="ecsp-title" itemprop="name" style="display:none;" content="Elephant ChronoThé"></div>
+					<div customprop="addtobag"></div>
+				</div>
 			</div>
-		</section>
+		</div>
+	</section>
 
-      
-			
-			<!-- <div class="block">
-				<p class="subtitle">Plus jamais oubliez votre sachet de thé dans le bol. </p>
-				 -->
-				<!-- <video width="100%" autoplay="true" controls>
-					<source src="img/RPReplay_Final1641596617.mp4" type="video/mp4">
-					Your browser does not support the video tag.
-				</video> -->
-			<!-- </div> -->
+	<!-- Section 1: Who is it for? -->
+	<section class="hero">
+		<div class="hero-body">
+			<p class="title is-3" data-i18n="section1_title">
+				A qui ça sert?
+			</p>
+			<p class="subtitle is-5" data-i18n="section1_text">
+				N'oubliez plus votre sachet/infusieur de thé dans la tasse — confiez-le a l'Elephant.
 
-			<!-- <a href="https://buy.stripe.com/4gwcQ18Qm2RH3GofYY"><button class="button is-link is-light">Commandez pour €75.00 EUR</button></a>  -->
-			
-			<section class="hero">
-				<div class="hero-body">
-				  <p class="title" data-i18n="section1_title">
-					A qui ça sert?
-				  </p>
-				  <p class="subtitle" data-i18n="section1_text">
-					N'oubliez plus votre sachet/infusieur de thé dans la tasse — confiez-le a l'Elephant.
+				Il les extract tout seule apres le temps pre-defini.
+			</p>
+		</div>
+	</section>
 
-					Il les extract tout seule apres le temps pre-defini.
-				  </p>
-				</div>
-			</section>
+	<!-- Section 2: Easy to use -->
+	<section class="hero">
+		<div class="hero-body">
+			<p class="title is-3" data-i18n="section2_title">
+				Facile
+			</p>
+			<p class="subtitle is-5" data-i18n="section2_text1">
+				Attachez votre infusieur ou sachet a l'Elephant.
+			</p>
+			<p><img src="img/start.jpg" width="80%" alt="Attach your tea infuser"></p>
 
-			<section class="hero">
-				<div class="hero-body">
-					<p class="title" data-i18n="section2_title">
-						Facile
-					</p>
-					<p class="subtitle" data-i18n="section2_text1">
-						Attachez votre infusieur ou sachet a l'Elephant.
-					</p>
-					<p><img src="img/start.jpg" width="80%"></p>
+			<p class="subtitle is-5" data-i18n="section2_text2">
+				Mettez temps d'infusion et tapez pour commencer.
+			</p>
 
-					<p class="subtitle" data-i18n="section2_text2">
-						Mettez temps d'infusion et tapez pour commencer.
-					</p>
+			<video width="80%" autoplay muted loop playsinline controls>
+				<source src="img/start.mp4" type="video/mp4">
+				Your browser does not support the video tag.
+			</video>
 
-					<video width="80%" autoplay="true" controls>
-						<source src="img/start.mp4" type="video/mp4">
-						Your browser does not support the video tag.
-					</video>
-					<p class="subtitle" data-i18n="section2_text3">
-						A la fin d'infusion l'Elephant se remonte et vous laisse recuperer votre thé quand vous voulez. Votre thé, meme tiede, sera parfait.
-					</p>
-					<video width="80%" autoplay="true" controls>
-						<source src="img/end.mp4" type="video/mp4">
-						Your browser does not support the video tag.
-					</video>
-				</div>
-			</section>
+			<p class="subtitle is-5" data-i18n="section2_text3">
+				A la fin d'infusion l'Elephant se remonte et vous laisse recuperer votre thé quand vous voulez. Votre thé, meme tiede, sera parfait.
+			</p>
 
-			<section class="hero">
-				<div class="hero-body">
-				  <p class="title" data-i18n="section3_title">
-					Pas besoin de grande place
-				  </p>
-				  <p class="subtitle" data-i18n="section3_text">
-					Sa base est de la taille de boite de thé.
-				  </p>
-				</div>
-			</section>
+			<video width="80%" autoplay muted loop playsinline controls>
+				<source src="img/end.mp4" type="video/mp4">
+				Your browser does not support the video tag.
+			</video>
+		</div>
+	</section>
 
-			<section class="hero">
-				<div class="hero-body">
-				  <p class="title" data-i18n="section4_title">
-					Pas besoins de prise electrique
-				  </p>
-				  <p class="subtitle" data-i18n="section4_text">
-					Il fonction sur batterie qui dure au moins une semaine!
-				  </p>
-				</div>
-			</section>
+	<!-- Section 3: Compact -->
+	<section class="hero">
+		<div class="hero-body">
+			<p class="title is-3" data-i18n="section3_title">
+				Pas besoin de grande place
+			</p>
+			<p class="subtitle is-5" data-i18n="section3_text">
+				Sa base est de la taille de boite de thé.
+			</p>
+		</div>
+	</section>
 
-			<section class="hero">
-				<div class="hero-body">
-				  <p class="title" data-i18n="section5_title">
-					Eco-responsable
-				  </p>
-				  <p class="subtitle" data-i18n="section5_text">
-					Conçu et fabriqué en France, 100% artisanale!
-					Construit du bois responsable francais, col du bois francais, acier francais et huile de lin 100% naturel francais.
-				  </p>
-				</div>
-			</section>
+	<!-- Section 4: Battery powered -->
+	<section class="hero">
+		<div class="hero-body">
+			<p class="title is-3" data-i18n="section4_title">
+				Pas besoins de prise electrique
+			</p>
+			<p class="subtitle is-5" data-i18n="section4_text">
+				Il fonction sur batterie qui dure au moins une semaine!
+			</p>
+		</div>
+	</section>
 
-			<div class="ecsp ecsp-SingleProduct-v2 ecsp-Product ec-Product-439665127" itemtype="http://schema.org/Product" data-single-product-id="439665127"><div class="ecsp-title" itemprop="name" style="display:none;" content="Elephant ChronoThé"></div><div customprop="addtobag"></div></div><script data-cfasync="false" type="text/javascript" src="https://app.ecwid.com/script.js?71454014&data_platform=singleproduct_v2" charset="utf-8"></script><script type="text/javascript">xProduct()</script>
+	<!-- Section 5: Eco-friendly -->
+	<section class="hero">
+		<div class="hero-body">
+			<p class="title is-3" data-i18n="section5_title">
+				Eco-responsable
+			</p>
+			<p class="subtitle is-5" data-i18n="section5_text">
+				Conçu et fabriqué en France, 100% artisanale!
+				Construit du bois responsable francais, col du bois francais, acier francais et huile de lin 100% naturel francais.
+			</p>
+		</div>
+	</section>
 
-			
-
-			<footer class="footer">
-				<div class="columns">
-					<div class="column">
-						<div class="content has-text-centered">
-				
-						<p>ChronoThé — Paris </p>
-
-						<p>A Chrono Tea company </p>
-
-						<p> 2021-2022 </p>
-
-						<p><a href="mailto:info@chronothe.fr">info@chronothe.fr</a></p>
-						
-					</div>
-						
-						
-						
-					</div>
-					<div class="column">
-						<!--Zoho Campaigns Web-Optin Form's Header Code Starts Here-->
-
-					<script type="text/javascript" src="https://zc1.maillist-manage.eu/js/optin.min.js" onload="setupSF('sf3z4cb7bc614689aa7df10d27965a527d7cfcd8d8292448ee99fb6912364e1e945c','ZCFORMVIEW',false,'light',false,'0')"></script>
-					<script type="text/javascript">
-						function runOnFormSubmit_sf3z4cb7bc614689aa7df10d27965a527d7cfcd8d8292448ee99fb6912364e1e945c(th){
-							/*Before submit, if you want to trigger your event, "include your code here"*/
-						};
-					</script>
-
-					<style>
-					#customForm.quick_form_2_css * {
-						-webkit-box-sizing: border-box !important;
-						-moz-box-sizing: border-box !important;
-						box-sizing: border-box !important;
-						overflow-wrap: break-word
-					}
-					input[type="text"]::placeholder {
-						color: rgb(165, 165, 165)
-					}
-					@media only screen and (max-width: 200px) {.quick_form_2_css[name="SIGNUP_BODY"] { width: 100% !important; min-width: 100% !important; margin: 0px auto !important; padding: 0px !important } }
-					@media screen and (min-width: 320px) and (max-width: 580px) and (orientation: portrait) {.quick_form_2_css[name="SIGNUP_BODY"] { max-width: 300px !important; margin: 0px auto !important; padding: 0px !important } }
-					@media only screen and (max-device-width: 1024px) {.quick_form_2_css[name="SIGNUP_BODY"] { max-width: 500px !important; margin: 0px auto !important } }
-					@media only screen and (max-device-width: 1024px) and (orientation: landscape) {.quick_form_2_css[name="SIGNUP_BODY"] { max-width: 700px !important; margin: 0px auto !important } }
-					@media screen and (min-width: 475px) and (max-width: 980px) and (orientation: landscape) {.quick_form_2_css[name="SIGNUP_BODY"] { max-width: 400px !important; margin: 0px auto !important; padding: 0px !important } }
-					</style>
-
-					<!--Zoho Campaigns Web-Optin Form's Header Code Ends Here--><!--Zoho Campaigns Web-Optin Form Starts Here-->
-
-					<div id="sf3z4cb7bc614689aa7df10d27965a527d7cfcd8d8292448ee99fb6912364e1e945c" data-type="signupform" style="opacity: 1;">
-						<div id="customForm">
-							<div class="quick_form_2_css" style="border: 1px solid rgb(235, 235, 235); background-color: rgb(255, 255, 255); width: 250px; z-index: 2; font-family: Arial; overflow: hidden" name="SIGNUP_BODY">
-								<div style="text-align: center">
-									<div style="font-size: 14px; font-family: Arial; font-weight: bold; color: rgb(136, 136, 136); text-align: center; padding: 15px 0; width: 100%; display: block; background-color: rgb(235, 235, 235)" id="SIGNUP_HEADING" data-i18n="newsletter_title">Restez informé</div>
-									<div style="position:relative;">
-										<div id="Zc_SignupSuccess" style="display:none;position:absolute;margin-left:4%;width:90%;background-color: white; padding: 3px; border: 3px solid rgb(194, 225, 154);  margin-top: 10px;margin-bottom:10px;word-break:break-all">
-											<table width="100%" cellspacing="0" cellpadding="0" border="0">
-												<tbody>
-													<tr>
-														<td width="10%">
-															<img class="successicon" src="https://zc1.maillist-manage.eu/images/challangeiconenable.jpg" align="absmiddle">
-														</td>
-														<td>
-															<span id="signupSuccessMsg" style="color: rgb(73, 140, 132); font-family: sans-serif; font-size: 14px;word-break:break-word">&nbsp;&nbsp;Thank you for Signing Up</span>
-														</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
-									<form method="POST" id="zcampaignOptinForm" style="margin: 0px; width: 100%; color: rgb(255, 255, 255)" action="https://maillist-manage.eu/weboptin.zc" target="_zcSignup">
-										<div style="background-color: rgb(255, 235, 232); padding: 10px; color: rgb(210, 0, 0); font-size: 11px; margin: 20px 10px 0px; border: 1px solid rgb(255, 217, 211); opacity: 1; display: none" id="errorMsgDiv">Please correct the marked field(s) below.</div>
-										<div style="position: relative; width: 218px; height: 30px; margin-top: 20px; display: inline-block">
-											<input type="text" style="font-size: 12px; border-width: 1px; border-color: rgb(235, 235, 235); border-style: solid; width: 100%; height: 100%; z-index: 4; outline: none; box-sizing: border-box; padding: 5px 10px; color: rgb(136, 136, 136); text-align: center; font-family: Arial; border-radius: 5px" placeholder="Email" changeitem="SIGNUP_FORM_FIELD" name="CONTACT_EMAIL" id="EMBED_FORM_EMAIL_LABEL" data-i18n-placeholder="newsletter_email">
-										</div>
-										<div style="position: relative; width: 218px; height: 30px; margin-top: 20px; display: inline-block">
-											<input type="text" style="font-size: 12px; border-width: 1px; border-color: rgb(235, 235, 235); border-style: solid; width: 100%; height: 100%; z-index: 4; outline: none; padding: 5px 10px; box-sizing: border-box; color: rgb(136, 136, 136); text-align: center; font-family: Arial; border-radius: 5px" placeholder="Votre nom" changeitem="SIGNUP_FORM_FIELD" name="LASTNAME" id="EMBED_FORM_NAME_LABEL" data-i18n-placeholder="newsletter_name">
-										</div>
-										<div style="position: relative; width: 113px; height: 30px; margin: 20px 0 15px; display: inline-block">
-											<input type="button" style="text-align: center; width: 100%; height: 100%; z-index: 5; border: 0; color: rgb(255, 255, 255); border-radius: 2px; cursor: pointer; outline: none; font-size: 14px; background-color: rgb(255, 97, 97)" name="SIGNUP_SUBMIT_BUTTON" id="zcWebOptin" value="Inscrivez moi!" data-i18n-value="newsletter_button">
-										</div>
-										<input type="hidden" id="fieldBorder" value="">
-										<input type="hidden" id="submitType" name="submitType" value="optinCustomView">
-										<input type="hidden" id="emailReportId" name="emailReportId" value="">
-										<input type="hidden" id="formType" name="formType" value="QuickForm">
-										<input type="hidden" name="zx" id="cmpZuid" value="14ace211a7">
-										<input type="hidden" name="zcvers" value="2.0">
-										<input type="hidden" name="oldListIds" id="allCheckedListIds" value="">
-										<input type="hidden" id="mode" name="mode" value="OptinCreateView">
-										<input type="hidden" id="zcld" name="zcld" value="1154c400d8ec2e90">
-										<input type="hidden" id="zctd" name="zctd" value="1154c400d8ec2dc1">
-										<input type="hidden" id="document_domain" value="">
-										<input type="hidden" id="zc_Url" value="zc1.maillist-manage.eu">
-										<input type="hidden" id="new_optin_response_in" value="0">
-										<input type="hidden" id="duplicate_optin_response_in" value="0">
-										<input type="hidden" name="zc_trackCode" id="zc_trackCode" value="ZCFORMVIEW">
-										<input type="hidden" id="zc_formIx" name="zc_formIx" value="3z4cb7bc614689aa7df10d27965a527d7cfcd8d8292448ee99fb6912364e1e945c">
-										<input type="hidden" id="viewFrom" value="URL_ACTION">
-										<span style="display: none" id="dt_CONTACT_EMAIL">1,true,6,Contact Email,2</span>
-										<span style="display: none" id="dt_FIRSTNAME">1,false,1,First Name,2</span>
-										<span style="display: none" id="dt_LASTNAME">1,false,1,Last Name,2</span>
-									</form>
-								</div>
-							</div>
-						</div>
-						<img src="https://zc1.maillist-manage.eu/images/spacer.gif" id="refImage" onload="referenceSetter(this)" style="display:none;">
-					</div>
-					<input type="hidden" id="signupFormType" value="QuickForm_Vertical">
-					<div id="zcOptinOverLay" oncontextmenu="return false" style="display:none;text-align: center; background-color: rgb(0, 0, 0); opacity: 0.5; z-index: 100; position: fixed; width: 100%; top: 0px; left: 0px; height: 988px;"></div>
-					<div id="zcOptinSuccessPopup" style="display:none;z-index: 9999;width: 800px; height: 40%;top: 84px;position: fixed; left: 26%;background-color: #FFFFFF;border-color: #E6E6E6; border-style: solid; border-width: 1px;  box-shadow: 0 1px 10px #424242;padding: 35px;">
-						<span style="position: absolute;top: -16px;right:-14px;z-index:99999;cursor: pointer;" id="closeSuccess">
-							<img src="https://zc1.maillist-manage.eu/images/videoclose.png">
-						</span>
-						<div id="zcOptinSuccessPanel"></div>
-					</div>
-
-					<!--Zoho Campaigns Web-Optin Form Ends Here--> 
-					</div>
-				</div>
-			
-			</footer>
+	<!-- Second Product Embed -->
+	<div class="product-embed">
+		<div class="ecsp ecsp-SingleProduct-v2 ecsp-Product ec-Product-439665127" itemtype="http://schema.org/Product" data-single-product-id="439665127">
+			<div class="ecsp-title" itemprop="name" style="display:none;" content="Elephant ChronoThé"></div>
+			<div customprop="addtobag"></div>
 		</div>
 	</div>
 
-	<script>
-		// Multi-language support
-		const translations = {
-			fr: {
-				subtitle: "Elephant ChronoThé — l'assistant de thé parfait",
-				section1_title: "A qui ça sert?",
-				section1_text: "N'oubliez plus votre sachet/infusieur de thé dans la tasse — confiez-le a l'Elephant.\n\nIl les extract tout seule apres le temps pre-defini.",
-				section2_title: "Facile",
-				section2_text1: "Attachez votre infusieur ou sachet a l'Elephant.",
-				section2_text2: "Mettez temps d'infusion et tapez pour commencer.",
-				section2_text3: "A la fin d'infusion l'Elephant se remonte et vous laisse recuperer votre thé quand vous voulez. Votre thé, meme tiede, sera parfait.",
-				section3_title: "Pas besoin de grande place",
-				section3_text: "Sa base est de la taille de boite de thé.",
-				section4_title: "Pas besoins de prise electrique",
-				section4_text: "Il fonction sur batterie qui dure au moins une semaine!",
-				section5_title: "Eco-responsable",
-				section5_text: "Conçu et fabriqué en France, 100% artisanale!\nConstruit du bois responsable francais, col du bois francais, acier francais et huile de lin 100% naturel francais.",
-				newsletter_title: "Restez informé",
-				newsletter_email: "Email",
-				newsletter_name: "Votre nom",
-				newsletter_button: "Inscrivez moi!"
-			},
-			en: {
-				subtitle: "Elephant ChronoTea — the perfect tea assistant",
-				section1_title: "Who is it for?",
-				section1_text: "Never forget your tea bag/infuser in the cup again — trust the Elephant.\n\nIt automatically removes them after the preset time.",
-				section2_title: "Easy",
-				section2_text1: "Attach your infuser or tea bag to the Elephant.",
-				section2_text2: "Set the infusion time and tap to start.",
-				section2_text3: "At the end of the infusion, the Elephant lifts up and lets you retrieve your tea whenever you want. Your tea, even lukewarm, will be perfect.",
-				section3_title: "Compact design",
-				section3_text: "Its base is the size of a tea box.",
-				section4_title: "No electrical outlet needed",
-				section4_text: "It runs on a battery that lasts at least a week!",
-				section5_title: "Eco-friendly",
-				section5_text: "Designed and made in France, 100% handcrafted!\nMade from French sustainable wood, French wood glue, French steel, and 100% natural French linseed oil.",
-				newsletter_title: "Stay informed",
-				newsletter_email: "Email",
-				newsletter_name: "Your name",
-				newsletter_button: "Sign me up!"
-			}
-		};
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="content has-text-centered">
+			<p><strong>ChronoThé — Paris</strong></p>
+			<p>A Chrono Tea company</p>
+			<p>2021-2025</p>
+			<p><a href="mailto:info@chronothe.fr">info@chronothe.fr</a></p>
+		</div>
+	</footer>
+</div>
 
-		// Get language from URL parameter, default to French
-		function getLanguage() {
-			const urlParams = new URLSearchParams(window.location.search);
-			const lang = urlParams.get('lang');
-			return (lang === 'en' || lang === 'fr') ? lang : 'fr';
+<!-- Ecwid Product Scripts -->
+<script data-cfasync="false" type="text/javascript" src="https://app.ecwid.com/script.js?71454014&data_platform=singleproduct_v2" charset="utf-8"></script>
+<script type="text/javascript">xProduct()</script>
+
+<script>
+	// Multi-language support with SEO enhancements
+	const translations = {
+		fr: {
+			title: "ChronoThé Paris — L'Assistant de Thé Parfait",
+			subtitle: "Elephant ChronoThé — l'assistant de thé parfait",
+			section1_title: "A qui ça sert?",
+			section1_text: "N'oubliez plus votre sachet/infusieur de thé dans la tasse — confiez-le a l'Elephant.\n\nIl les extract tout seule apres le temps pre-defini.",
+			section2_title: "Facile",
+			section2_text1: "Attachez votre infusieur ou sachet a l'Elephant.",
+			section2_text2: "Mettez temps d'infusion et tapez pour commencer.",
+			section2_text3: "A la fin d'infusion l'Elephant se remonte et vous laisse recuperer votre thé quand vous voulez. Votre thé, meme tiede, sera parfait.",
+			section3_title: "Pas besoin de grande place",
+			section3_text: "Sa base est de la taille de boite de thé.",
+			section4_title: "Pas besoins de prise electrique",
+			section4_text: "Il fonction sur batterie qui dure au moins une semaine!",
+			section5_title: "Eco-responsable",
+			section5_text: "Conçu et fabriqué en France, 100% artisanale!\nConstruit du bois responsable francais, col du bois francais, acier francais et huile de lin 100% naturel francais."
+		},
+		en: {
+			title: "ChronoTea Paris — The Perfect Tea Assistant",
+			subtitle: "Elephant ChronoTea — the perfect tea assistant",
+			section1_title: "Who is it for?",
+			section1_text: "Never forget your tea bag/infuser in the cup again — trust the Elephant.\n\nIt automatically removes them after the preset time.",
+			section2_title: "Easy",
+			section2_text1: "Attach your infuser or tea bag to the Elephant.",
+			section2_text2: "Set the infusion time and tap to start.",
+			section2_text3: "At the end of the infusion, the Elephant lifts up and lets you retrieve your tea whenever you want. Your tea, even lukewarm, will be perfect.",
+			section3_title: "Compact design",
+			section3_text: "Its base is the size of a tea box.",
+			section4_title: "No electrical outlet needed",
+			section4_text: "It runs on a battery that lasts at least a week!",
+			section5_title: "Eco-friendly",
+			section5_text: "Designed and made in France, 100% handcrafted!\nMade from French sustainable wood, French wood glue, French steel, and 100% natural French linseed oil."
 		}
+	};
 
-		// Switch language and update URL
-		function switchLanguage(lang) {
-			const url = new URL(window.location);
-			url.searchParams.set('lang', lang);
-			window.location.href = url.toString();
-		}
+	// Get language from URL parameter, default to French
+	function getLanguage() {
+		const urlParams = new URLSearchParams(window.location.search);
+		const lang = urlParams.get('lang');
+		return (lang === 'en' || lang === 'fr') ? lang : 'fr';
+	}
 
-		// Apply translations
-		function applyTranslations(lang) {
-			const texts = translations[lang];
+	// Switch language and update URL
+	function switchLanguage(lang) {
+		const url = new URL(window.location);
+		url.searchParams.set('lang', lang);
+		window.history.pushState({}, '', url);
+		applyTranslations(lang);
+	}
 
-			// Update text content
-			document.querySelectorAll('[data-i18n]').forEach(element => {
-				const key = element.getAttribute('data-i18n');
-				if (texts[key]) {
-					element.textContent = texts[key];
-				}
-			});
+	// Apply translations
+	function applyTranslations(lang) {
+		const texts = translations[lang];
 
-			// Update placeholders
-			document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
-				const key = element.getAttribute('data-i18n-placeholder');
-				if (texts[key]) {
-					element.placeholder = texts[key];
-				}
-			});
+		// Update HTML lang attribute
+		document.documentElement.lang = lang;
 
-			// Update input values
-			document.querySelectorAll('[data-i18n-value]').forEach(element => {
-				const key = element.getAttribute('data-i18n-value');
-				if (texts[key]) {
-					element.value = texts[key];
-				}
-			});
+		// Update page title
+		document.title = texts.title;
 
-			// Update meta tags
-			const metaDescription = document.querySelector('meta[name="description"]');
-			if (metaDescription) {
-				metaDescription.content = texts.subtitle;
+		// Update text content
+		document.querySelectorAll('[data-i18n]').forEach(element => {
+			const key = element.getAttribute('data-i18n');
+			if (texts[key]) {
+				element.textContent = texts[key];
 			}
-
-			const ogDescription = document.querySelector('meta[property="og:description"]');
-			if (ogDescription) {
-				ogDescription.content = texts.subtitle;
-			}
-
-			const twitterDescription = document.querySelector('meta[name="twitter:description"]');
-			if (twitterDescription) {
-				twitterDescription.content = texts.subtitle;
-			}
-
-			// Highlight active language button
-			document.querySelectorAll('.language-switcher .button').forEach(btn => {
-				btn.classList.remove('is-primary');
-			});
-			const activeBtn = Array.from(document.querySelectorAll('.language-switcher .button'))
-				.find(btn => btn.textContent.toLowerCase() === lang);
-			if (activeBtn) {
-				activeBtn.classList.add('is-primary');
-			}
-		}
-
-		// Initialize on page load
-		document.addEventListener('DOMContentLoaded', function() {
-			const currentLang = getLanguage();
-			applyTranslations(currentLang);
 		});
-	</script>
+
+		// Update meta tags for better SEO
+		const metaDescription = document.querySelector('meta[name="description"]');
+		if (metaDescription) {
+			metaDescription.content = texts.subtitle;
+		}
+
+		const ogTitle = document.querySelector('meta[property="og:title"]');
+		if (ogTitle) {
+			ogTitle.content = texts.title;
+		}
+
+		const ogDescription = document.querySelector('meta[property="og:description"]');
+		if (ogDescription) {
+			ogDescription.content = texts.subtitle;
+		}
+
+		const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+		if (twitterTitle) {
+			twitterTitle.content = texts.title;
+		}
+
+		const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+		if (twitterDescription) {
+			twitterDescription.content = texts.subtitle;
+		}
+
+		// Highlight active language button
+		document.querySelectorAll('.language-switcher .button').forEach(btn => {
+			btn.classList.remove('is-primary');
+		});
+		const activeBtn = Array.from(document.querySelectorAll('.language-switcher .button'))
+			.find(btn => btn.textContent.toLowerCase() === lang);
+		if (activeBtn) {
+			activeBtn.classList.add('is-primary');
+		}
+
+		// Track language change in Google Analytics
+		if (typeof gtag !== 'undefined') {
+			gtag('event', 'language_change', {
+				'event_category': 'engagement',
+				'event_label': lang
+			});
+		}
+	}
+
+	// Initialize on page load
+	document.addEventListener('DOMContentLoaded', function() {
+		const currentLang = getLanguage();
+		applyTranslations(currentLang);
+	});
+
+	// Handle browser back/forward buttons
+	window.addEventListener('popstate', function() {
+		const currentLang = getLanguage();
+		applyTranslations(currentLang);
+	});
+</script>
+
 </body>
 </html>
